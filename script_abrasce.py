@@ -136,6 +136,6 @@ with open('shoppings.csv', 'w') as _file:
                 'Total_lojas; Sala_cinema; Estacionamento\n')
     for i in lista_dados_final:
         _file.write(f'{i[0]};{i[1]};{i[2]};{i[3]};{i[4]};{i[5]};{i[6]};{i[7]};{i[8]};{i[9]};{i[10]};'
-                    f'{i[11]};{i[12]};{i[13]};{i[14]}\n')
+                    f'{i[11]};{i[12]};{i[13]};{i[14]};{i[15]}\n')
 
 chrome.quit()
