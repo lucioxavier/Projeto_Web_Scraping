@@ -31,6 +31,7 @@ def close_pop_up ():
             print(f'Tentativa: {c1}')
         else:
             wait.until(EC.element_to_be_clickable((By.ID, id_button_1))).click()
+            sleep(1)
             break
 
 def close_pop_up_2 ():
@@ -48,6 +49,7 @@ def close_pop_up_2 ():
                 print(f'Tentativa: {c2}')
         else:
             wait.until(EC.visibility_of_element_located((By.XPATH, id_button_2))).click()
+            sleep(1)
             break
 
 def carregar_mais ():
