@@ -68,7 +68,7 @@ def carregar_mais ():
             c3 = 0
 
 #Abrindo navegador
-chrome = webdriver.Chrome()
+chrome = webdriver.Chrome(executable_path='C:\PYTHON\chromedriver')
 wait = WebDriverWait(chrome, 0.1)
 
 for letra in alfabeto:
