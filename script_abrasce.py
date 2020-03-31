@@ -7,7 +7,7 @@ from time import sleep
 from bs4 import BeautifulSoup as bs
 
 #Declarando as primeiras variáveis
-alfabeto = ['A', 'B']
+alfabeto = ['A']
 links = []
 lista_dados_temp = []
 lista_dados_final = []
@@ -59,7 +59,7 @@ def carregar_mais ():
             wait.until(EC.text_to_be_present_in_element((By.ID, id_button_3), 'CARREGAR MAIS'))
         except:
             c3 += 1
-            if c3 > 120:
+            if c3 > 100:
                 break
             else:
                 print(f'Tentativa: {c3}')
@@ -87,7 +87,7 @@ for letra in alfabeto:
         selection_1 = page.find('div', {'class': 'col-12 col-lg-7'})
         selection_2 = page.find('div', {'class': 'col-12 col-lg-5'})
         selection_3 = page.find('div', {'class': 'icons shoppings mt-4 mb-4'})
-        name_shopping = selection_1.find('div', {'class': 'col-12'}).text
+        name_shopping = selection_1.find('div', {'class': 'col-12'}).text.strip()
         classe_a = selection_1.find('span', {'id': 'mfs_perfil_a'}).text
         classe_b = selection_1.find('span', {'id': 'mfs_perfil_b'}).text
         classe_c = selection_1.find('span', {'id': 'mfs_perfil_c'}).text
@@ -126,13 +126,14 @@ for letra in alfabeto:
         print(f'Total de Lojas: {total_lojas}')
         print(f'Salas de Cinema: {sala_cinema}')
         print(f'Vagas de Estacionamento: {estacionamento}')'''
+
     links.clear()
 with open('shoppings.csv', 'w') as _file:
-    _file.write('Nome_Shopping, Classe_A, Classe_B, Classe_C, Classe_D, Area_total, Area_Construida,'
-                'Area_Bruta_Locavel, Telefone, Site, Endereco, Qtd_pisos, Qtd_lojas_ancora, '
-                'Total_lojas, Sala_cinema, Estacionamento\n')
+    _file.write('Nome_Shopping; Classe_A; Classe_B; Classe_C; Classe_D; Area_total; Area_Construida;'
+                'Area_Bruta_Locavel; Telefone; Site; Endereco; Qtd_pisos; Qtd_lojas_ancora; '
+                'Total_lojas; Sala_cinema; Estacionamento\n')
     for i in lista_dados_final:
-        _file.write(f'{i[0]},{i[1]},{i[2]},{i[3]},{i[4]},{i[5]},{i[6]},{i[7]},{i[8]},{i[9]},{i[10]},'
-                    f'{i[11]},{i[12]},{i[13]},{i[14]}\n')
+        _file.write(f'{i[0]};{i[1]};{i[2]};{i[3]};{i[4]};{i[5]};{i[6]};{i[7]};{i[8]};{i[9]};{i[10]};'
+                    f'{i[11]};{i[12]};{i[13]};{i[14]}\n')
 
 chrome.quit()
