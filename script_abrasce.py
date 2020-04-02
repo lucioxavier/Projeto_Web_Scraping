@@ -7,7 +7,8 @@ from time import sleep
 from bs4 import BeautifulSoup as bs
 
 #Declarando as primeiras variáveis
-alfabeto = ['A']
+'''alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'W', 'Z']'''
+alfabeto = ['R']
 links = []
 lista_dados_temp = []
 lista_dados_final = []
@@ -130,7 +131,7 @@ for letra in alfabeto:
         print(f'Vagas de Estacionamento: {estacionamento}')'''
 
     links.clear()
-with open('shoppings.csv', 'w') as _file:
+with open('shoppings.csv', 'w', encoding='utf-8') as _file:
     _file.write('Nome_Shopping; Classe_A; Classe_B; Classe_C; Classe_D; Area_total; Area_Construida;'
                 'Area_Bruta_Locavel; Telefone; Site; Endereco; Qtd_pisos; Qtd_lojas_ancora; '
                 'Total_lojas; Sala_cinema; Estacionamento\n')

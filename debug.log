@@ -6,3 +6,5 @@
 [0331/002642.318:ERROR:exception_snapshot_win.cc(98)] thread ID 39244 not found in process
 [0331/002642.477:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
 [0331/002642.477:ERROR:exception_snapshot_win.cc(98)] thread ID 58464 not found in process
+[0331/140524.067:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0331/140524.092:ERROR:exception_snapshot_win.cc(98)] thread ID 6548 not found in process
