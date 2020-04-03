@@ -5,10 +5,13 @@ from selenium.webdriver.support import expected_conditions as EC # Importar clas
 from selenium.webdriver.common.by import By
 from time import sleep
 from bs4 import BeautifulSoup as bs
+from random import random
 
 #Declarando as primeiras variáveis
-'''alfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'W', 'Z']'''
-alfabeto = ['R']
+alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G',
+            'H', 'I', 'J', 'K', 'L', 'M', 'N', 
+            'O', 'P', 'Q', 'R', 'S', 'T', 'U', 
+            'V', 'X', 'Y', 'W', 'Z']
 links = []
 lista_dados_temp = []
 lista_dados_final = []
@@ -72,9 +75,9 @@ def carregar_mais ():
 
 #Abrindo navegador
 chrome = webdriver.Chrome(executable_path='C:\PYTHON\chromedriver')
-wait = WebDriverWait(chrome, 0.1)
+wait = WebDriverWait(chrome, 1)
 
-for letra in alfabeto:
+for letra in alphabet:
     carregar_url(f'{url}{letra}')
     close_pop_up()
     close_pop_up_2()
@@ -111,26 +114,8 @@ for letra in alfabeto:
                             qtd_pisos, qtd_lojas_ancora, total_lojas, sala_cinema, estacionamento]
         lista_dados_final.append(lista_dados_temp[0:])
         lista_dados_temp.clear()
-
-        '''print()
-        print(f'Nome: {name_shopping}')
-        print(f'Classe A: {classe_a}%')
-        print(f'Classe B: {classe_b}%')
-        print(f'Classe C: {classe_c}%')
-        print(f'Classe D: {classe_d}%')
-        print(f'Area Total: {area_total}m2')
-        print(f'Area Construída: {area_construida}m2')
-        print(f'Area Bruta Locável: {area_bruta_locavel}m2')
-        print(f'Telefone: {telefone}')
-        print(f'Site: {site}')
-        print(f'Endereco: {endereco}')
-        print(f'Qtd de Pisos: {qtd_pisos}')
-        print(f'Lojas Ancora: {qtd_lojas_ancora}')
-        print(f'Total de Lojas: {total_lojas}')
-        print(f'Salas de Cinema: {sala_cinema}')
-        print(f'Vagas de Estacionamento: {estacionamento}')'''
-
     links.clear()
+    
 with open('shoppings.csv', 'w', encoding='utf-8') as _file:
     _file.write('Nome_Shopping; Classe_A; Classe_B; Classe_C; Classe_D; Area_total; Area_Construida;'
                 'Area_Bruta_Locavel; Telefone; Site; Endereco; Qtd_pisos; Qtd_lojas_ancora; '
