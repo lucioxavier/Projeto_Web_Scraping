@@ -13,9 +13,14 @@ alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G',
             'O', 'P', 'Q', 'R', 'S', 'T', 'U', 
             'V', 'X', 'Y', 'W', 'Z']
 links = []
-lista_dados_temp = []
-lista_dados_final = []
+i = []
 url = f'https://abrasce.com.br/guia-de-shoppings/?letter='
+
+#Criando arquivo para salvar os dados posteriormente
+with open('shoppings.csv', 'w') as _file:
+    _file.write('Nome_Shopping; Classe_A; Classe_B; Classe_C; Classe_D; Area_total; Area_Construida;'
+                'Area_Bruta_Locavel; Telefone; Site; Endereco; Qtd_pisos; Qtd_lojas_ancora; '
+                'Total_lojas; Sala_cinema; Estacionamento\n')
 
 #Definindo funções
 def carregar_url(url_):
@@ -109,19 +114,12 @@ for letra in alphabet:
         total_lojas = selection_3.find('p', {'id': 'mfs_total_lojas'}).text
         sala_cinema = selection_3.find('p', {'id': 'mfs_cinema'}).text
         estacionamento = selection_3.find('p', {'id': 'mfs_vagas'}).text
-        lista_dados_temp = [name_shopping, classe_a, classe_b, classe_c, classe_d, area_total,
+        i = [name_shopping, classe_a, classe_b, classe_c, classe_d, area_total,
                             area_construida, area_bruta_locavel, telefone, site, endereco,
                             qtd_pisos, qtd_lojas_ancora, total_lojas, sala_cinema, estacionamento]
-        lista_dados_final.append(lista_dados_temp[0:])
-        lista_dados_temp.clear()
-    links.clear()
-    
-with open('shoppings.csv', 'w', encoding='utf-8') as _file:
-    _file.write('Nome_Shopping; Classe_A; Classe_B; Classe_C; Classe_D; Area_total; Area_Construida;'
-                'Area_Bruta_Locavel; Telefone; Site; Endereco; Qtd_pisos; Qtd_lojas_ancora; '
-                'Total_lojas; Sala_cinema; Estacionamento\n')
-    for i in lista_dados_final:
-        _file.write(f'{i[0]};{i[1]};{i[2]};{i[3]};{i[4]};{i[5]};{i[6]};{i[7]};{i[8]};{i[9]};{i[10]};'
+        with open('shoppings.csv', 'a') as _file2:
+            _file2.write(f'{i[0]};{i[1]};{i[2]};{i[3]};{i[4]};{i[5]};{i[6]};{i[7]};{i[8]};{i[9]};{i[10]};'
                     f'{i[11]};{i[12]};{i[13]};{i[14]};{i[15]}\n')
-
+        i.clear()
+    links.clear()
 chrome.quit()
