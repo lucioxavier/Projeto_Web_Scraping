@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from time import sleep
 from bs4 import BeautifulSoup as bs
 from random import random
+from unidecode import unidecode
 
 #Declarando as primeiras variáveis
 alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G',
@@ -123,9 +124,9 @@ for letra in alphabet:
         total_lojas = selection_3.find('p', {'id': 'mfs_total_lojas'}).text
         sala_cinema = selection_3.find('p', {'id': 'mfs_cinema'}).text
         estacionamento = selection_3.find('p', {'id': 'mfs_vagas'}).text
-        i = [name_shopping, classe_a, classe_b, classe_c, classe_d, area_total,
-                            area_construida, area_bruta_locavel, telefone, site, endereco,
-                            qtd_pisos, qtd_lojas_ancora, total_lojas, sala_cinema, estacionamento]
+        i = [un(name_shopping), classe_a, classe_b, classe_c, classe_d, area_total,
+            area_construida, area_bruta_locavel, telefone, un(site), un(endereco), qtd_pisos,
+            qtd_lojas_ancora, total_lojas, sala_cinema, estacionamento]
         with open('shoppings.csv', 'a') as _file2:
             _file2.write(f'{i[0]};{i[1]};{i[2]};{i[3]};{i[4]};{i[5]};{i[6]};{i[7]};{i[8]};{i[9]};{i[10]};'
                     f'{i[11]};{i[12]};{i[13]};{i[14]};{i[15]}\n')
