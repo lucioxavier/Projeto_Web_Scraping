@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from time import sleep
 from bs4 import BeautifulSoup as bs
 from random import random
-from unidecode import unidecode
+from unidecode import unidecode as un
 
 #Declarando as primeiras variáveis
 alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G',
